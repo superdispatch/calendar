@@ -16,7 +16,7 @@ export default class DateTHead extends React.Component {
     for (let dateColIndex = 0; dateColIndex < DateConstants.DATE_COL_COUNT; dateColIndex++) {
       const index = (firstDayOfWeek + dateColIndex) % DateConstants.DATE_COL_COUNT;
       now.day(index);
-      veryShortWeekdays[dateColIndex] = localeData.weekdaysMin(now);
+      veryShortWeekdays[dateColIndex] = localeData.weekdaysMin(now).substring(0,1);
       weekDays[dateColIndex] = localeData.weekdaysShort(now);
     }
 
@@ -47,6 +47,7 @@ export default class DateTHead extends React.Component {
       {showWeekNumberEl}
       {weekDaysEls}
     </tr>
+    <tr className={`${prefixCls}-empty-column-header`} />
     </thead>);
   }
 }

@@ -5,14 +5,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import MonthCalendar from 'rc-calendar/src/MonthCalendar';
+import QuarterCalendar from '../src/QuaterCalendar';
 import DatePicker from 'rc-calendar/src/Picker';
 
 import zhCN from 'rc-calendar/src/locale/zh_CN';
 import enUS from 'rc-calendar/src/locale/en_US';
 
 import moment from 'moment';
-import 'moment/locale/zh-cn';
-import 'moment/locale/en-gb';
 
 const format = 'YYYY-MM';
 const cn = location.search.indexOf('cn') !== -1;
@@ -68,16 +67,6 @@ class Demo extends React.Component {
       style={{ zIndex: 1000 }}
     />);
     return (<div style={{ width: 240, margin: 20 }}>
-      <div style={{ marginBottom: 10 }}>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <label>
-          <input
-            checked={state.disabled}
-            onChange={this.toggleDisabled}
-            type="checkbox"
-          /> disabled
-        </label>
-      </div>
       <div style={{
         boxSizing: 'border-box',
         position: 'relative',
@@ -126,7 +115,7 @@ function disabledDate(value) {
 
 function onMonthCellContentRender(value) {
   // console.log('month-calendar onMonthCellContentRender', (value && value.format(format)));
-  return `${value.month() + 1}月`;
+  return value.format('MMM');
 }
 
 ReactDOM.render(
@@ -138,12 +127,13 @@ ReactDOM.render(
       margin: '0 auto',
     }}
   >
-    <MonthCalendar
+    <QuarterCalendar
       locale={enUS}
       style={{ zIndex: 1000 }}
       disabledDate={disabledDate}
       onSelect={onStandaloneSelect}
       onChange={onStandaloneChange}
+      monthCellContentRender={onMonthCellContentRender}
       defaultValue={defaultCalendarValue}
       renderFooter={() => 'extra footer'}
     />

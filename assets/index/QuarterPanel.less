@@ -1,4 +1,4 @@
-.@{prefixClass}-month-panel {
+.@{prefixClass}-quarter-panel {
   left: 0;
   top:0;
   bottom: 0;
@@ -15,11 +15,11 @@
   }
 }
 
-.@{prefixClass}-month-panel-hidden {
+.@{prefixClass}-quarter-panel-hidden {
   display: none;
 }
 
-.@{prefixClass}-month-panel-header {
+.@{prefixClass}-quarter-panel-header {
   padding: 0 10px;
   height: 34px;
   line-height: 30px;
@@ -27,6 +27,7 @@
   text-align: center;
   user-select: none;
   -webkit-user-select: none;
+  border-bottom: 1px solid #ccc;
 
   > a {
     font-weight: bold;
@@ -37,66 +38,67 @@
 
     &:hover {
       cursor: pointer;
+      color: #23c0fa;
     }
   }
 }
 
-.@{prefixClass}-month-panel-prev-year-btn, .@{prefixClass}-month-panel-next-year-btn {
+.@{prefixClass}-quarter-panel-prev-year-btn, .@{prefixClass}-quarter-panel-next-year-btn {
   position: absolute;
   top: 0;
 }
 
-.@{prefixClass}-month-panel-next-year-btn {
+.@{prefixClass}-quarter-panel-next-year-btn {
   &:after {
-    content: '›'
+    content: '»'
   }
 }
 
-.@{prefixClass}-month-panel-prev-year-btn {
+.@{prefixClass}-quarter-panel-prev-year-btn {
   user-select: none;
   left: 0;
 
   &:after {
-    content: '‹'
+    content: '«'
   }
 }
 
-.@{prefixClass}-month-panel .@{prefixClass}-month-panel-year-select {
+.@{prefixClass}-quarter-panel .@{prefixClass}-quarter-panel-year-select {
   width: 180px;
 }
 
-.@{prefixClass}-month-panel-year-select-arrow {
+.@{prefixClass}-quarter-panel-year-select-arrow {
   display: none;
 }
 
-.@{prefixClass}-month-panel-next-year-btn {
+.@{prefixClass}-quarter-panel-next-year-btn {
   user-select: none;
   right: 0;
 }
 
-.@{prefixClass}-month-panel-body {
+.@{prefixClass}-quarter-panel-body {
   flex: 1;
   padding: 9px 10px 10px;
 }
 
-.@{prefixClass}-month-panel-footer {
+.@{prefixClass}-quarter-panel-footer {
   border-top: 1px solid #ccc;
   line-height: 38px;
 }
 
-.@{prefixClass}-month-panel-table {
+.@{prefixClass}-quarter-panel-table {
   table-layout: fixed;
   width: 100%;
   height: 100%;
   border-collapse: separate;
 }
 
-.@{prefixClass}-month-panel-cell {
+.@{prefixClass}-quarter-panel-cell {
   text-align: center;
 
 
 
-  .@{prefixClass}-month-panel-month {
+  .@{prefixClass}-quarter-panel-quarter {
     display: block;
     width: 46px;
     margin: 0 auto;
@@ -115,7 +117,7 @@
   }
 
   &-disabled{
-    .@{prefixClass}-month-panel-month {
+    .@{prefixClass}-quarter-panel-quarter {
       color: #bfbfbf;
 
       &:hover {
@@ -126,17 +128,17 @@
   }
 }
 
-.@{prefixClass}-month-panel-selected-cell .@{prefixClass}-month-panel-month {
-  background: #0075FF;
+.@{prefixClass}-quarter-panel-selected-cell .@{prefixClass}-quarter-panel-quarter {
+  background: #3fc7fa;
   color: #fff;
 
   &:hover {
-    background: #0075FF;
+    background: #3fc7fa;
     color: #fff;
   }
 }
 
-.@{prefixClass}-month-header-wrap {
+.@{prefixClass}-quarter-header-wrap {
   position: relative;
   height: 308px;
 }

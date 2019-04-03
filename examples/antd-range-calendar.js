@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Picker from 'rc-calendar/src/Picker';
-import RangeCalendar from 'rc-calendar/src/RangeCalendar';
+import RangeCalendar from '../src/RangeCalendar';
 import zhCN from 'rc-calendar/src/locale/zh_CN';
 import enUS from 'rc-calendar/src/locale/en_US';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
@@ -141,7 +141,10 @@ class Demo extends React.Component {
         defaultValue={[now, now.clone().add(1, 'months')]}
         locale={cn ? zhCN : enUS}
         disabledTime={disabledTime}
-        timePicker={timePickerElement}
+        type="both"
+        showDateInput={false}
+        showToday={false}
+        showOk={false}
       />
     );
     return (
@@ -173,25 +176,7 @@ ReactDOM.render(
   <div>
     <h2>calendar</h2>
     <div style={{ margin: 10 }}>
-      <RangeCalendar
-        showToday={false}
-        showWeekNumber
-        dateInputPlaceholder={['start', 'end']}
-        locale={cn ? zhCN : enUS}
-        showOk={false}
-        showClear
-        format={formatStr}
-        onChange={onStandaloneChange}
-        onSelect={onStandaloneSelect}
-        disabledDate={disabledDate}
-        timePicker={timePickerElement}
-        disabledTime={disabledTime}
-        renderFooter={() => <span>extra footer</span>}
-      />
+     <Demo/>
     </div>
-    <br />
 
-    <div style={{ margin: 20 }}>
-      <Demo />
-    </div>
   </div>, document.getElementById('__react-content'));

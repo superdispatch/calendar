@@ -2,21 +2,23 @@
   position: relative;
   outline: none;
   font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
-  width: 253px;
-  border: 1px solid #ccc;
+  width: 256px;
   list-style: none;
   font-size: 12px;
   text-align: left;
   background-color: #fff;
-  border-radius: 3px;
-  box-shadow: 0 1px 5px #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 60px rgba(9, 30, 66, 0.08);
   background-clip: padding-box;
-  border: 1px solid #ccc;
   line-height: 1.5;
 
   &-date-panel, &-panel {
     position: relative;
     outline: none;
+  }
+
+  &-date-panel {
+    padding: 18px 25px 25px 25px;
   }
 
   &-week-number {
@@ -28,13 +30,11 @@
   }
 
   &-header {
-    padding: 0 10px;
     height: 34px;
     line-height: 30px;
     text-align: center;
     user-select: none;
     -webkit-user-select: none;
-    border-bottom: 1px solid #ccc;
 
     > a {
       font-weight: bold;
@@ -46,13 +46,12 @@
 
       &:hover {
         cursor: pointer;
-        color: #23c0fa;
       }
     }
 
     .@{prefixClass}-prev-month-btn {
       position: absolute;
-      left: 25px;
+      left: 0;
 
       &:after {
         content: '‹'
@@ -61,7 +60,7 @@
 
     .@{prefixClass}-next-month-btn {
       position: absolute;
-      right: 25px;
+      right: 0;
 
       &:after {
         content: '›'
@@ -73,13 +72,14 @@
     display: inline-block;
     font-size: 12px;
     font-weight: bold;
-    color: #666;
+    color: #141C29;
     padding: 0 8px;
-    line-height: 34px;
+    line-height: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
 
     &:hover {
       cursor: pointer;
-      color: #23c0fa;
     }
     &.@{prefixClass}-time-status:hover{
       cursor: pointer;
@@ -122,10 +122,6 @@
     }
   }
 
-  &-body {
-    padding: 9px 10px 10px;
-    height: 217px;
-  }
 
   table {
     border-collapse: collapse;
@@ -139,11 +135,13 @@
   }
 
   &-table {
-    border-spacing: 0;
+    border-collapse: separate;
+    border-spacing: 16px 16px;
     margin-bottom: 0;
   }
 
   &-column-header {
+    color: #6D7480;
     line-height: 18px;
     padding: 6px 0;
     width: 33px;
@@ -152,6 +150,10 @@
       display: block;
       font-weight: normal;
     }
+  }
+
+  &-empty-column-header {
+    height: 17px;
   }
 
   &-week-number-header {
@@ -167,35 +169,24 @@
   &-date {
     display: block;
     margin: 0 auto;
-    color: #666;
+    color: #141C29;
     border-radius: 4px 4px;
-    width: 26px;
-    height: 26px;
     padding: 0;
     background: transparent;
     line-height: 26px;
     text-align: center;
+    vertical-align: middle;
 
     &:hover {
-      background: #ebfaff;
+      background: #E7F2FF;
       cursor: pointer;
     }
   }
 
-  &-selected-day &-date {
-    background: tint(#3fc7fa, 80%);
-  }
-
+  &-selected-day &-date,
   &-selected-date &-date {
-    background: #3fc7fa;
+    background: #0075FF;
     color: #fff;
-    &:hover {
-      background: #3fc7fa;
-    }
-  }
-
-  &-today &-date {
-    border: 1px solid #3fc7fa;
   }
 
   &-disabled-cell &-date {
@@ -222,6 +213,7 @@
 
   &-last-month-cell &-date, &-next-month-btn-day &-date {
     color: #bbb;
+    display: none;
   }
 
   &-footer {

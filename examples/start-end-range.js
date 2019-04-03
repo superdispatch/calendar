@@ -42,16 +42,18 @@ class Picker extends React.Component {
       <RangeCalendar
         hoverValue={this.state.hoverValue}
         onHoverChange={this.onHoverChange}
-        type={this.props.type}
+        type="both"
         locale={cn ? zhCN : enUS}
         defaultValue={now}
         format={format}
         onChange={props.onChange}
         disabledDate={props.disabledDate}
-      />);
+        showDateInput={false}
+      />
+    );
     return (
       <DatePicker
-        open={this.props.open}
+        open={true}
         onOpenChange={this.props.onOpenChange}
         calendar={calendar}
         value={props.value}
@@ -124,27 +126,13 @@ class Demo extends React.Component {
     return (
       <div style={{ width: 240, margin: 20 }}>
         <p>
-          开始时间：
           <Picker
             onOpenChange={this.onStartOpenChange}
-            type="start"
+            type="both"
             showValue={state.startValue}
             open={this.state.startOpen}
             value={[state.startValue, state.endValue]}
             onChange={this.onStartChange}
-          />
-        </p>
-
-        <p>
-          结束时间：
-          <Picker
-            onOpenChange={this.onEndOpenChange}
-            open={this.state.endOpen}
-            type="end"
-            showValue={state.endValue}
-            disabledDate={this.disabledStartDate}
-            value={[state.startValue, state.endValue]}
-            onChange={this.onEndChange}
           />
         </p>
       </div>);

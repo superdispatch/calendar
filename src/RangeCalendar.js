@@ -612,7 +612,7 @@ class RangeCalendar extends React.Component {
     const {
       prefixCls, dateInputPlaceholder, seperator,
       timePicker, showOk, locale, showClear,
-      showToday, type, clearIcon,
+      showToday, type, clearIcon, twoCalendars,
     } = props;
     const {
       hoverValue,
@@ -715,30 +715,6 @@ class RangeCalendar extends React.Component {
               showTimePicker={showTimePicker}
               enablePrev
               enableNext={!isClosestMonths || this.isMonthYearPanelShow(mode[1])}
-              clearIcon={clearIcon}
-            />
-            <span className={`${prefixCls}-range-middle`}>{seperator}</span>
-            <CalendarPart
-              {...props}
-              {...newProps}
-              hoverValue={hoverValue}
-              direction="right"
-              format={this.getFormat()}
-              timePickerDisabledTime={this.getEndDisableTime()}
-              placeholder={placeholder2}
-              value={endValue}
-              mode={mode[1]}
-              onInputChange={this.onEndInputChange}
-              onInputSelect={this.onEndInputSelect}
-              onValueChange={this.onEndValueChange}
-              onPanelChange={this.onEndPanelChange}
-              showDateInput={this.props.showDateInput}
-              timePicker={timePicker}
-              showTimePicker={showTimePicker}
-              disabledTime={this.disabledEndTime}
-              disabledMonth={this.disabledEndMonth}
-              enablePrev={!isClosestMonths || this.isMonthYearPanelShow(mode[0])}
-              enableNext
               clearIcon={clearIcon}
             />
           </div>

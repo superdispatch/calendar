@@ -4,6 +4,7 @@ import toFragment from 'rc-util/lib/Children/mapSelf';
 import MonthPanel from '../month/MonthPanel';
 import YearPanel from '../year/YearPanel';
 import DecadePanel from '../decade/DecadePanel';
+import QuaterPanel from '../quater/QuaterPanel';
 
 function goMonth(direction) {
   const next = this.props.value.clone();
@@ -13,7 +14,7 @@ function goMonth(direction) {
 
 function goYear(direction) {
   const next = this.props.value.clone();
-  next.add(direction, 'years');
+  next.add(direction, 'quarters');
   this.props.onValueChange(next);
 }
 
@@ -73,6 +74,15 @@ export default class CalendarHeader extends React.Component {
   onDecadeSelect = (value) => {
     this.props.onPanelChange(value, 'year');
     this.props.onValueChange(value);
+  }
+
+  onQuarterSelect = (value) => {
+    this.props.onPanelChange(value, 'date');
+    if (this.props.onQuarterSelect) {
+      this.props.onQuarterSelect(value);
+    } else {
+      this.props.onValueChange(value);
+    }
   }
 
   monthYearElement = (showTimePicker) => {
@@ -188,15 +198,21 @@ export default class CalendarHeader extends React.Component {
       );
     }
 
+    if (mode === 'quarter') {
+      panel = (
+        <QuaterPanel
+          locale={locale}
+          defaultValue={value}
+          rootPrefixCls={prefixCls}
+          onYearPanelShow={() => this.showYearPanel('quarter')}
+          onSelect={this.onQuarterSelect}
+          renderFooter={renderFooter}
+        />
+      );
+    }
+
     return (<div className={`${prefixCls}-header`}>
       <div style={{ position: 'relative' }}>
-        {showIf(enablePrev && !showTimePicker,
-          <a
-            className={`${prefixCls}-prev-year-btn`}
-            role="button"
-            onClick={this.previousYear}
-            title={locale.previousYear}
-          />)}
         {showIf(enablePrev && !showTimePicker,
           <a
             className={`${prefixCls}-prev-month-btn`}
@@ -210,12 +226,6 @@ export default class CalendarHeader extends React.Component {
             className={`${prefixCls}-next-month-btn`}
             onClick={this.nextMonth}
             title={locale.nextMonth}
-          />)}
-        {showIf(enableNext && !showTimePicker,
-          <a
-            className={`${prefixCls}-next-year-btn`}
-            onClick={this.nextYear}
-            title={locale.nextYear}
           />)}
       </div>
       {panel}

@@ -93,8 +93,8 @@ class QuaterCalendar extends React.Component {
     const { props, state } = this;
     const { mode, value } = state;
     const children = (
-      <div className={`${props.prefixCls}-month-calendar-content`}>
-        <div className={`${props.prefixCls}-month-header-wrap`}>
+      <div className={`${props.prefixCls}-quarter-calendar-content`}>
+        <div className={`${props.prefixCls}-quarter-header-wrap`}>
           <CalendarHeader
             prefixCls={props.prefixCls}
             mode={mode}

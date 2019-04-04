@@ -1,5 +1,5 @@
 {
-  "name": "rc-calendar",
+  "name": "sd-calendar",
   "version": "9.13.0",
   "description": "React Calendar",
   "keywords": [
@@ -34,6 +34,10 @@
     "port": 8002,
     "entry": {
       "rc-calendar": [
+        "./assets/index.less",
+        "./src/index.js"
+      ],
+      "sd-calendar": [
         "./assets/index.less",
         "./src/index.js"
       ]

@@ -1,13 +1,13 @@
 /* eslint react/no-multi-comp:0, no-console:0 */
 
-import 'rc-calendar/assets/index.less';
+import 'sd-calendar/assets/index.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import Calendar from 'rc-calendar';
-import DatePicker from 'rc-calendar/src/Picker';
-import zhCN from 'rc-calendar/src/locale/zh_CN';
-import enUS from 'rc-calendar/src/locale/en_US';
+import Calendar from 'sd-calendar';
+import DatePicker from 'sd-calendar/src/Picker';
+import zhCN from 'sd-calendar/src/locale/zh_CN';
+import enUS from 'sd-calendar/src/locale/en_US';
 
 import moment from 'moment';
 import 'moment/locale/zh-cn';
@@ -27,13 +27,13 @@ const style = `
 .week-calendar {
   width: 386px;
 }
-.week-calendar .rc-calendar-tbody > tr:hover
-.rc-calendar-date {
+.week-calendar .sd-calendar-tbody > tr:hover
+.sd-calendar-date {
   background: #ebfaff;
 }
 
-.week-calendar .rc-calendar-tbody > tr:hover
-.rc-calendar-selected-day .rc-calendar-date {
+.week-calendar .sd-calendar-tbody > tr:hover
+.sd-calendar-selected-day .sd-calendar-date {
     background: #3fc7fa;
 }
 
@@ -45,7 +45,7 @@ const style = `
   width:100px;
   border-right: 1px solid #ccc;
 }
-.week-calendar .rc-calendar-panel {
+.week-calendar .sd-calendar-panel {
   margin-left: 100px;
 }
 `;
@@ -78,14 +78,14 @@ class Demo extends React.Component {
     const selectedValue = this.state.value;
     if (selectedValue && current.year() === selectedValue.year() &&
       current.week() === selectedValue.week()) {
-      return (<div className="rc-calendar-selected-day">
-        <div className="rc-calendar-date">
+      return (<div className="sd-calendar-selected-day">
+        <div className="sd-calendar-date">
           {current.date()}
         </div>
       </div>);
     }
     return (
-      <div className="rc-calendar-date">
+      <div className="sd-calendar-date">
         {current.date()}
       </div>);
   }

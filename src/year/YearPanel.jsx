@@ -26,8 +26,8 @@ export default class YearPanel extends React.Component {
     this.state = {
       value: props.value || props.defaultValue,
     };
-    this.nextYear = goYear.bind(this, 10);
-    this.previousYear = goYear.bind(this, -10);
+    this.nextDecade = goYear.bind(this, 10);
+    this.previousDecade = goYear.bind(this, -10);
   }
 
   years() {
@@ -72,9 +72,9 @@ export default class YearPanel extends React.Component {
         };
         let clickHandler;
         if (yearData.year < startYear) {
-          clickHandler = this.previousYear;
+          clickHandler = this.previousDecade;
         } else if (yearData.year > endYear) {
-          clickHandler = this.nextYear;
+          clickHandler = this.nextDecade;
         } else {
           clickHandler = chooseYear.bind(this, yearData.year);
         }
@@ -105,8 +105,8 @@ export default class YearPanel extends React.Component {
             <a
               className={`${prefixCls}-prev-decade-btn`}
               role="button"
-              onClick={this.previousYear}
-              title={locale.previousYear}
+              onClick={this.previousDecade}
+              title={locale.previousDecade}
             />
             <a
               className={`${prefixCls}-decade-select`}
@@ -123,8 +123,8 @@ export default class YearPanel extends React.Component {
             <a
               className={`${prefixCls}-next-decade-btn`}
               role="button"
-              onClick={this.nextYear}
-              title={locale.nextYear}
+              onClick={this.nextDecade}
+              title={locale.nextDecade}
             />
           </div>
           <div className={`${prefixCls}-body`}>

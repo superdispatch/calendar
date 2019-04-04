@@ -14,7 +14,7 @@ function goMonth(direction) {
 
 function goYear(direction) {
   const next = this.props.value.clone();
-  next.add(direction, 'quarters');
+  next.add(direction, 'years');
   this.props.onValueChange(next);
 }
 

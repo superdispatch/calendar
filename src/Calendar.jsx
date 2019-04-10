@@ -27,6 +27,7 @@ class Calendar extends React.Component {
     ...propType,
     prefixCls: PropTypes.string,
     className: PropTypes.string,
+    dateContentRender: PropTypes.func,
     style: PropTypes.object,
     defaultValue: PropTypes.object,
     value: PropTypes.object,
@@ -342,6 +343,7 @@ class Calendar extends React.Component {
             selectedValue={selectedValue}
             prefixCls={prefixCls}
             dateRender={props.dateRender}
+            contentRender={props.dateContentRender}
             onSelect={this.onDateTableSelect}
             disabledDate={disabledDate}
             showWeekNumber={props.showWeekNumber}

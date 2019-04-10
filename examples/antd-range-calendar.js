@@ -117,7 +117,7 @@ function onStandaloneSelect(value) {
 
 class Demo extends React.Component {
   state = {
-    value: [],
+    value: undefined,
     hoverValue: [],
   }
 
@@ -127,18 +127,22 @@ class Demo extends React.Component {
   }
 
   onHoverChange = (hoverValue) => {
+    console.log('hoverValue', hoverValue)
     this.setState({ hoverValue });
   }
 
   render() {
     const state = this.state;
-    const calendar = (
+    return  (
       <RangeCalendar
         hoverValue={state.hoverValue}
         onHoverChange={this.onHoverChange}
         showWeekNumber={false}
         dateInputPlaceholder={['start', 'end']}
-        defaultValue={[now, now.clone().add(1, 'months')]}
+        defaultValue={[now, now.clone()]}
+        value={state.value}
+        selectedValue={state.value || [now, now.clone()]}
+        onChange={this.onChange}
         locale={cn ? zhCN : enUS}
         disabledTime={disabledTime}
         type="both"

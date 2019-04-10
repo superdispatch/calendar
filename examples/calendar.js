@@ -276,7 +276,9 @@ ReactDOM.render((<div
         format={getFormat(true)}
         onChange={onStandaloneChange}
         onSelect={onStandaloneSelect}
-        extraFooter
+        dateContentRender={() => (
+          <span>1</span>
+        )}
       />
     </div>
   </div>

@@ -207,9 +207,9 @@ export default class DateTBody extends React.Component {
 
         let dateHtml;
         if (dateRender) {
-          dateHtml = dateRender(current, value);
+          dateHtml = dateRender(current, value, {selected, disabled});
         } else {
-          const content = contentRender ? contentRender(current, value) : current.date();
+          const content = contentRender ? contentRender(current, value, {selected, disabled}) : current.date();
           dateHtml = (
             <div
               key={getIdFromDate(current)}

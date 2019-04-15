@@ -6,6 +6,9 @@ import YearPanel from '../year/YearPanel';
 import DecadePanel from '../decade/DecadePanel';
 import QuaterPanel from '../quater/QuaterPanel';
 
+import LeftArrow from '../icons/LeftArrow';
+import RightArrow from '../icons/RightArrow';
+
 function goMonth(direction) {
   const next = this.props.value.clone();
   next.add(direction, 'months');
@@ -219,14 +222,20 @@ export default class CalendarHeader extends React.Component {
             role="button"
             onClick={this.previousMonth}
             title={locale.previousMonth}
-          />)}
+          >
+            <LeftArrow />
+          </a>
+        )}
         {this.monthYearElement(showTimePicker)}
         {showIf(enableNext && !showTimePicker,
           <a
             className={`${prefixCls}-next-month-btn`}
             onClick={this.nextMonth}
             title={locale.nextMonth}
-          />)}
+          >
+            <RightArrow />
+          </a>
+        )}
       </div>
       {panel}
     </div>);

@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+
+import LeftArrow from '../icons/LeftArrow';
+import RightArrow from '../icons/RightArrow';
+
 const ROW = 4;
 const COL = 3;
 
@@ -107,7 +111,9 @@ export default class YearPanel extends React.Component {
               role="button"
               onClick={this.previousDecade}
               title={locale.previousDecade}
-            />
+            >
+              <LeftArrow />
+            </a>
             <a
               className={`${prefixCls}-decade-select`}
               role="button"
@@ -125,7 +131,9 @@ export default class YearPanel extends React.Component {
               role="button"
               onClick={this.nextDecade}
               title={locale.nextDecade}
-            />
+            >
+              <RightArrow />
+            </a>
           </div>
           <div className={`${prefixCls}-body`}>
             <table className={`${prefixCls}-table`} cellSpacing="0" role="grid">

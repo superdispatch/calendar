@@ -1,7 +1,7 @@
 .@{prefixClass} {
   position: relative;
   outline: none;
-  font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Segoe UI", "SF Pro Display", "SF Pro Text", "Roboto", "Ubuntu", sans-serif;
   width: 256px;
   list-style: none;
   font-size: 12px;
@@ -52,19 +52,11 @@
     .@{prefixClass}-prev-month-btn {
       position: absolute;
       left: 0;
-
-      &:after {
-        content: '‹'
-      }
     }
 
     .@{prefixClass}-next-month-btn {
       position: absolute;
       right: 0;
-
-      &:after {
-        content: '›'
-      }
     }
   }
 
@@ -95,7 +87,7 @@
     top: 0;
     cursor: pointer;
     color: #999;
-    font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", sans-serif;
+    font-family: "Segoe UI", "SF Pro Display", "SF Pro Text", "Roboto", "Ubuntu", sans-serif;
     padding: 0 5px;
     font-size: 16px;
     display: inline-block;
@@ -167,7 +159,9 @@
   }
 
   &-date {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
     color: #141C29;
     border-radius: 4px 4px;
@@ -176,6 +170,8 @@
     line-height: 26px;
     text-align: center;
     vertical-align: middle;
+    width: 29px;
+    height: 29px;
 
     &:hover {
       background: #E7F2FF;

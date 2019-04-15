@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { polyfill } from 'react-lifecycles-compat';
 import MonthTable from './MonthTable';
 
+import LeftArrow from '../icons/LeftArrow';
+import RightArrow from '../icons/RightArrow';
+
 function goYear(direction) {
   const next = this.state.value.clone();
   next.add(direction, 'year');
@@ -89,7 +92,9 @@ class MonthPanel extends React.Component {
               role="button"
               onClick={this.previousYear}
               title={locale.previousYear}
-            />
+            >
+              <LeftArrow />
+            </a>
 
             <a
               className={`${prefixCls}-year-select`}
@@ -106,7 +111,9 @@ class MonthPanel extends React.Component {
               role="button"
               onClick={this.nextYear}
               title={locale.nextYear}
-            />
+            >
+              <RightArrow />
+            </a>
           </div>
           <div className={`${prefixCls}-body`}>
             <MonthTable

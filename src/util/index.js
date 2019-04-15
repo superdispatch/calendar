@@ -28,9 +28,8 @@ export function getTodayTimeStr(value) {
 }
 
 export function getMonthName(month) {
-  const locale = month.locale();
   const localeData = month.localeData();
-  return localeData[locale === 'zh-cn' ? 'months' : 'monthsShort'](month);
+  return localeData['months'](month);
 }
 
 export function syncTime(from, to) {

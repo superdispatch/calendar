@@ -143,7 +143,7 @@ class Demo extends React.Component {
         value={state.value}
         selectedValue={state.value || [now, now.clone()]}
         onChange={this.onChange}
-        locale={cn ? zhCN : enUS}
+        locale={{...enUS, monthFormat: 'MMMM'}}
         disabledTime={disabledTime}
         type="both"
         showDateInput={false}

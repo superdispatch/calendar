@@ -5,6 +5,8 @@ import classnames from 'classnames';
 import QuarterTable from './QuarterTable';
 import MonthTable from '../month/MonthTable'
 
+import LeftArrow from '../icons/LeftArrow';
+import RightArrow from '../icons/RightArrow';
 
 function goYear(direction) {
   const value = this.state.value.clone();
@@ -66,7 +68,9 @@ export default class QuarterPanel extends React.Component {
               role="button"
               onClick={this.previousYear}
               title={locale.previousYear}
-            />
+            >
+              <LeftArrow />
+            </a>
             <a
               className={`${prefixCls}-decade-select`}
               role="button"
@@ -84,7 +88,9 @@ export default class QuarterPanel extends React.Component {
               role="button"
               onClick={this.nextYear}
               title={locale.nextYear}
-            />
+            >
+              <RightArrow />
+            </a>
           </div>
           <div className={`${prefixCls}-body`}>
             <QuarterTable

@@ -713,8 +713,8 @@ class RangeCalendar extends React.Component {
               showDateInput={this.props.showDateInput}
               timePicker={timePicker}
               showTimePicker={showTimePicker}
-              enablePrev
-              enableNext={!isClosestMonths || this.isMonthYearPanelShow(mode[1])}
+              enablePrev={true}
+              enableNext={true}
               clearIcon={clearIcon}
             />
           </div>
